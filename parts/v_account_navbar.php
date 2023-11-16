@@ -1,11 +1,3 @@
-<?php
-if (isset($_POST['submit_account'])) {
-    $_SESSION['email'] =$user->email;
-    $_SESSION['user'] = serialize($user);
-    header("Location: v_account.php");
-    exit();
-  }
-?>
 <!-- start navbar -->
 <nav class="navbar navbar-expand-lg bg-body-secondary mb-3">
         <div class="container-fluid">
@@ -19,17 +11,13 @@ if (isset($_POST['submit_account'])) {
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <!-- اختيار الهوم المفعل شوف صفحته ايش المفعل والغي التفعيل حق هذي وفعل الثانية -->
-                        <a class="nav-link active" aria-current="page" href="v_homepage.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="v_homepage.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Ranking</a>
                     </li>
                 </ul>
                 <!-- لو صفحتك مافيها بحث احذف قسم البحث -->
-                <form class="d-flex " role="search">
-                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success me-4 ms-1" type="submit">Search</button>
-                </form>
                 <!-- الانتقال لصفحة الحساب -->
                 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                     <button class="btn btn-primary my-1" name="submit_account" type="submit">
@@ -41,7 +29,6 @@ if (isset($_POST['submit_account'])) {
                 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                     <button class="btn btn-outline-secondary " type="submit" name="submit_logout">log out</button>
                 </form>
-
             </div>
         </div>
     </nav>

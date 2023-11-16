@@ -10,6 +10,7 @@
         public $address;
         public $skills;
         public $number_v;
+        public $available;
         public $rate;
     
         protected $db;
@@ -47,6 +48,7 @@
                     $this->skills = $userData['skills'];
                     $this->number_v = $userData['number_v'];
                     $this->rate = $userData['rate'];
+                    $this->available=$userData['availability'];
                     // $this->db = $userData[''];
     
                 }

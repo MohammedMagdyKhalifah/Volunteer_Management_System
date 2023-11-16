@@ -1,8 +1,9 @@
 <?php
+session_start();
 // Config
 // اتصل بالداتا بيس
 include "./inc/config_db.php";
-session_start();
+
 
 if(isset($_POST['submit'])){
 

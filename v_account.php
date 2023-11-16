@@ -1,13 +1,25 @@
 <?php
+include "./parts/class_user.php";
 include './inc/config.php';
 session_start();
 
-if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)) {
+
+if (!(isset($_SESSION['email']))) {
     header('location:./login_v.php');
 }
+
 // include "./parts/class_user.php";
 // $user = new user($_SESSION["email"], $conn);
-echo $_SESSION['email'];
+
+// echo $_SESSION['email'];
+// print_r($_SESSION["user"]);
+$user = unserialize($_SESSION["user"]);
+// print_r($user);
+if($user->available>0){
+    $available="available";
+}else{
+    $available="Not available";
+}
 
 ?>
 <!DOCTYPE html>
@@ -18,57 +30,51 @@ echo $_SESSION['email'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style_account_v.css">
+    <!-- <link rel="stylesheet" href="./css/style_account_v.css"> -->
 </head>
 
 <body>
+    <?php include "./parts/v_account_navbar.php" ?>
     <section class="section about-section gray-bg" id="about">
         <div class="container">
+            <h1 class="dark-color">Volunteer Account</h1>
             <div class="row align-items-center flex-row-reverse">
                 <div class="col-lg-6">
                     <div class="about-text go-to">
-                        <h3 class="dark-color">Volunteer Account</h3>
-                        <h6 class="theme-color lead">A Lead UX &amp; UI designer based in Canada</h6>
-                        <p>I <mark>design and develop</mark> services for customers of all sizes, specializing in
-                            creating stylish, modern websites, web services and online stores. My passion is to design
-                            digital user experiences through the bold interface and meaningful interactions.</p>
+                        <h4 class="theme-color"><?php echo htmlspecialchars($user->name) ?></h4>
                         <div class="row about-list">
                             <div class="col-md-6">
                                 <div class="media">
-                                    <label>Birthday</label>
-                                    <p>4th april 1998</p>
+                                    <label>Academic ID</label>
+                                    <p><?php echo htmlspecialchars($user->academic_id); ?></p>
                                 </div>
                                 <div class="media">
-                                    <label>Age</label>
-                                    <p>22 Yr</p>
-                                </div>
-                                <div class="media">
-                                    <label>Residence</label>
-                                    <p>Canada</p>
+                                    <label>Skiils</label>
+                                    <p><?php echo htmlspecialchars($user->skills); ?></p>
                                 </div>
                                 <div class="media">
                                     <label>Address</label>
-                                    <p>California, USA</p>
+                                    <p><?php echo htmlspecialchars($user->address); ?></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="media">
                                     <label>E-mail</label>
-                                    <p>info@domain.com</p>
+                                    <p><?php echo htmlspecialchars($user->email); ?></p>
                                 </div>
                                 <div class="media">
                                     <label>Phone</label>
-                                    <p>820-885-3321</p>
+                                    <p><?php echo "0".htmlspecialchars($user->phone); ?></p>
                                 </div>
                                 <div class="media">
-                                    <label>Skype</label>
-                                    <p>skype.0404</p>
+                                    <label>Availability</label>
+                                    <p><?php echo $available; ?></p>
                                 </div>
                                 <div class="media">
-                                    <label>Freelance</label>
-                                    <p>Available</p>
+                                    <label>Rate</label>
+                                    <p><?php echo htmlspecialchars($user->rate); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -80,24 +86,24 @@ echo $_SESSION['email'];
                     </div>
                 </div>
             </div>
-            <div class="counter">
+            <div class="counter text-bg-secondary p-2">
                 <div class="row">
                     <div class="col-6 col-lg-3">
                         <div class="count-data text-center">
-                            <h6 class="count h2" data-to="500" data-speed="500">500</h6>
-                            <p class="m-0px font-w-600">Happy Clients</p>
+                            <h6 class="count h2" data-to="500" data-speed="500"><?php echo htmlspecialchars($user->volunteering_hours); ?></h6>
+                            <p class="m-0px font-w-600">Volunteer Hours</p>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="count-data text-center">
-                            <h6 class="count h2" data-to="150" data-speed="150">150</h6>
-                            <p class="m-0px font-w-600">Project Completed</p>
+                            <h6 class="count h2" data-to="150" data-speed="150"><?php echo htmlspecialchars($user->number_v); ?></h6>
+                            <p class="m-0px font-w-600">Volunteer Operations</p>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="count-data text-center">
                             <h6 class="count h2" data-to="850" data-speed="850">850</h6>
-                            <p class="m-0px font-w-600">Photo Capture</p>
+                            <p class="m-0px font-w-600">Active Volunteer Operations</p>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
@@ -110,8 +116,6 @@ echo $_SESSION['email'];
             </div>
         </div>
     </section>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>

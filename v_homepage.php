@@ -1,6 +1,6 @@
 <?php
-include "./inc/config_db.php";
 session_start();
+include "./inc/config_db.php";
 include "./parts/functons.php";
 // if (!(isset($_SESSION['loggedin']))) {
 //     header('location:./login_v.php');
@@ -46,11 +46,6 @@ handleVolunteeringRegistration($volunteering, $user, $conn);
 
 if (isset($_POST['submit_logout'])) {
     log_out();
-}
-if (isset($_POST['submit_account'])) {
-    $_SESSION['loggedin'] = true;
-    $_SESSION['email'] = $_POST['email'];
-    // ... rest of the code
 }
 include "./inc/close_db.php";
 ?>
