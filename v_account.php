@@ -8,6 +8,7 @@ if (!(isset($_SESSION['email']))) {
     header('location:./login_v.php');
 }
 
+
 // include "./parts/class_user.php";
 // $user = new user($_SESSION["email"], $conn);
 
@@ -20,6 +21,12 @@ if($user->available>0){
 }else{
     $available="Not available";
 }
+if (isset($_POST['submit_edit'])) {
+    $_SESSION['email'] =$user->email;
+    $_SESSION['user'] = serialize($user);
+    header("Location: parts/v_edit_information.php");
+    exit();
+  }
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +46,7 @@ if($user->available>0){
     <?php include "./parts/v_account_navbar.php" ?>
     <section class="section about-section gray-bg" id="about">
         <div class="container">
-            <h1 class="dark-color">Volunteer Account</h1>
+            <h1 class="dark-color">Account</h1>
             <div class="row align-items-center flex-row-reverse">
                 <div class="col-lg-6">
                     <div class="about-text go-to">
@@ -76,6 +83,9 @@ if($user->available>0){
                                     <label>Rate</label>
                                     <p><?php echo htmlspecialchars($user->rate); ?></p>
                                 </div>
+                                <button type="button" class="btn btn-outline-primary m-2 px-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Edit profile</button>
+                                <?php include "./parts/v_edit_profile.php" ?>
                             </div>
                         </div>
                     </div>

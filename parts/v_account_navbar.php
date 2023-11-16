@@ -1,3 +1,12 @@
+<?php 
+
+    if (isset($_POST['submit_logout'])) {
+        session_start();
+        session_unset();
+        session_destroy();
+        header('location:./login_v.php');
+    }
+?>
 <!-- start navbar -->
 <nav class="navbar navbar-expand-lg bg-body-secondary mb-3">
         <div class="container-fluid">
