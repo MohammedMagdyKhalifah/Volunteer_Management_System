@@ -68,6 +68,18 @@ function isValidPhone($phone) {
     return preg_match("/^[0-9]{10}$/", $phone);
 }
 
+function count_active_volunteer_operations($id,$conn){
+    $sql = "SELECT COUNT(Volunteering.id) AS available_volunteering_count 
+    FROM Volunteering 
+    INNER JOIN Volunteering_details 
+    ON Volunteering.id = Volunteering_details.volunteering_id 
+    WHERE Volunteering_details.volunteer_id = $id
+    AND volunteering.availability > 0";
+    $result = mysqli_query($conn, $sql);
+    $count=mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $count[0]["available_volunteering_count"];
+}
+
 
 
 ?>
