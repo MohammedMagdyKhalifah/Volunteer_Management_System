@@ -1,9 +1,8 @@
 <?php
 include "./parts/class_user.php";
-include './inc/config.php';
+include "./inc/config_db.php";
+include "./parts/functons.php";
 session_start();
-
-
 if (!(isset($_SESSION['email']))) {
     header('location:./login_v.php');
 }
@@ -21,13 +20,7 @@ if($user->available>0){
 }else{
     $available="Not available";
 }
-if (isset($_POST['submit_edit'])) {
-    $_SESSION['email'] =$user->email;
-    $_SESSION['user'] = serialize($user);
-    header("Location: parts/v_edit_information.php");
-    exit();
-  }
-
+// include "./inc/close_db.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -132,3 +125,4 @@ if (isset($_POST['submit_edit'])) {
 </body>
 
 </html>
+<?php include './inc/close_db.php'; ?>

@@ -47,7 +47,6 @@ handleVolunteeringRegistration($volunteering, $user, $conn);
 if (isset($_POST['submit_logout'])) {
     log_out();
 }
-include "./inc/close_db.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,3 +115,4 @@ include "./inc/close_db.php";
 </body>
 
 </html>
+<?php include './inc/close_db.php'; ?>

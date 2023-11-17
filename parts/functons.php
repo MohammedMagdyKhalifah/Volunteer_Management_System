@@ -17,7 +17,7 @@ function getAllVolunteeringOpportunities($conn)
 }
 function register_to_volunteering($userID, $volunteering_id, $conn)
 {
-    // لو العنصر موجود
+    // لو مسجل قبل كده 
     $sql2 = "SELECT *  FROM Volunteering_details WHERE volunteer_id =$userID AND volunteering_id=$volunteering_id";
     $result1 = mysqli_query($conn, $sql2);
     $aresult1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
@@ -52,6 +52,20 @@ function log_out()
     session_unset();
     session_destroy();
     header('location:./login_v.php');
+}
+function isValidName($name) {
+    // Check if name only contains letters and whitespace
+    return preg_match("/^[a-zA-Z-' ]*$/", $name);
+}
+
+function isValidEmail($email) {
+    // Check if email is valid
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+function isValidPhone($phone) {
+    // Check if phone number is valid (simple format validation)
+    return preg_match("/^[0-9]{10}$/", $phone);
 }
 
 

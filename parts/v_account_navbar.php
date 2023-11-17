@@ -1,5 +1,4 @@
 <?php 
-
     if (isset($_POST['submit_logout'])) {
         session_start();
         session_unset();
