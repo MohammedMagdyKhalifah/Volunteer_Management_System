@@ -79,7 +79,20 @@ function count_active_volunteer_operations($id,$conn){
     $count=mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $count[0]["available_volunteering_count"];
 }
+function handleVolunteeringDeleting($volunteering, $user, $conn) {
+    foreach ($volunteering as $vo) {
+        $volunteering_id = $vo["id"];
+        if (isset($_POST['submit_' . $volunteering_id])) {
+            // echo "submit_".$volunteering_id;]
+            // echo 'submit_' . $volunteering_id;
+            delete_volunteering($user->id, $volunteering_id, $conn);
+        }
+    }
+}
+function delete_volunteering($userID, $volunteering_id, $conn){
+    $sql = "DELETE FROM Volunteering_details WHERE volunteer_id = $userID AND volunteering_id=$volunteering_id";
+    mysqli_query($conn, $sql);
+    echo '<script type=text/javascript> alert("You have been registered for this Volunteering opportunity before!");window.location.href=window.location.href;</script>';
 
-
-
+}
 ?>
