@@ -4,7 +4,7 @@
     session_start();
     include "./../parts/functons.php";
     if (!(isset($_SESSION['employee']))) {
-        header('location:./login_e.php');
+        header('location: ./login_e.php');
     }
     $employee=unserialize($_SESSION['employee']);
     
