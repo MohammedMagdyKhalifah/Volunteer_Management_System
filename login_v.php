@@ -32,6 +32,7 @@ if(isset($_POST['submit'])){
    }
 
 };
+include "./inc/close_db.php";
 ?>
 
 <!DOCTYPE html>
