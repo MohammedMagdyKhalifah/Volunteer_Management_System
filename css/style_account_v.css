@@ -107,7 +107,7 @@ img {
   margin: 0;
 }
 mark {
-    background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
+    background-image: linear-gradient(#0d6efd, #0d6efd);
     background-size: 100% 3px;
     background-repeat: no-repeat;
     background-position: 0 bottom;
@@ -116,7 +116,7 @@ mark {
     color: currentColor;
 }
 .theme-color {
-    color: #fc5356;
+    color: #0d6efd;
 }
 .dark-color {
     color: #20247b;

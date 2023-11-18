@@ -7,15 +7,9 @@ include "./inc/config_db.php";
 
 if(isset($_POST['submit'])){
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
-   // has
-   $pass = MD5($_POST['password']);
    // hash
-   $cpass = MD5($_POST['cpassword']);
-   
-   $user_type = $_POST['user_type'];
-
+   $pass = MD5($_POST['password']);   
    $select = " SELECT * FROM volunteer WHERE email = '$email' && password = '$pass' ";
 
    $result = mysqli_query($conn, $select);
@@ -32,7 +26,6 @@ if(isset($_POST['submit'])){
    }
 
 };
-include "./inc/close_db.php";
 ?>
 
 <!DOCTYPE html>
@@ -63,10 +56,10 @@ include "./inc/close_db.php";
       <input type="email" name="email" required placeholder="enter your email">
       <input type="password" name="password" required placeholder="enter your password">
       <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="register_form.php">register now</a></p>
+      <p>don't have an account? <a href="#">register now</a></p>
    </form>
-
 </div>
 
 </body>
 </html>
+<?php include "./inc/close_db.php"; ?>

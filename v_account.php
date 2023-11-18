@@ -3,7 +3,7 @@ include "./parts/class_user.php";
 include "./inc/config_db.php";
 include "./parts/functons.php";
 session_start();
-if (!(isset($_SESSION['email']))) {
+if (!(isset($_SESSION['employee']))) {
     header('location:./login_v.php');
 }
 
