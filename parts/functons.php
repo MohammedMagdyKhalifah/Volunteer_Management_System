@@ -52,6 +52,7 @@ function log_out()
     session_unset();
     session_destroy();
     header('location: ./login_v.php');
+    exit();
 }
 function isValidName($name) {
     // Check if name only contains letters and whitespace
