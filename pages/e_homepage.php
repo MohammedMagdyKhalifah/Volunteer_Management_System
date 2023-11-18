@@ -5,8 +5,10 @@
     if (!(isset($_SESSION['employee']))) {
         header('location:./login_e.php');
     }
-    // $employee = unserialize($_SESSION["employee"]);
-    echo $_SESSION['email'];
+    $employee=unserialize($_SESSION['employee']);
+    
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
