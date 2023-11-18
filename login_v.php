@@ -10,9 +10,9 @@ if(isset($_POST['submit'])){
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    // has
-   $pass = ($_POST['password']);
+   $pass = MD5($_POST['password']);
    // hash
-   $cpass = ($_POST['cpassword']);
+   $cpass = MD5($_POST['cpassword']);
    
    $user_type = $_POST['user_type'];
 
