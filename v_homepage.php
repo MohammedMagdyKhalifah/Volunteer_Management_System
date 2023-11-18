@@ -23,7 +23,7 @@ $user = new User($_SESSION["email"], $conn);
 
 
 // استيراد القيم بتاعة العمليات التطوعية
-$sql = "SELECT * FROM volunteering";
+$sql = "SELECT * FROM volunteering WHERE availability>0";
 // تخزين القيم 
 $result = mysqli_query($conn, $sql);
 // استجلاب للقيم
@@ -67,7 +67,7 @@ if (isset($_POST['submit_logout'])) {
     <!-- start container -->
     <div class="container"> <!-- d-flex justify-content-between -->
         <?php include "./parts/Volunteering_cards.php"; ?>
-        
+
     </div>
 
     <!-- End container -->
