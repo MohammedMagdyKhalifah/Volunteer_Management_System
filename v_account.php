@@ -23,6 +23,18 @@ if($user->available>0){
 
 $active_volunteer = count_active_volunteer_operations($user->id,$conn);
 
+$sql = "SELECT Volunteering.*
+FROM Volunteering INNER JOIN Volunteering_details
+ON Volunteering.id = Volunteering_details.volunteering_id
+WHERE Volunteering.availability>0 AND Volunteering_details.volunteer_id = $user->id ";
+
+$result = mysqli_query($conn, $sql);
+
+$volunteering = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+handleVolunteeringDeleting($volunteering, $user, $conn);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,19 +114,20 @@ $active_volunteer = count_active_volunteer_operations($user->id,$conn);
                     <div class="col-6 col-lg-4">
                         <div class="count-data text-center">
                             <h6 class="count h2" ><?php echo htmlspecialchars($user->number_v); ?></h6>
-                            <p class="m-0px font-w-600">Volunteer Operations</p>
+                            <p class="m-0px font-w-600">Volunteering Operations</p>
                         </div>
                     </div>
                     <div class="col-6 col-lg-4">
                         <div class="count-data text-center">
                             <h6 class="count h2" ><?php echo $active_volunteer; ?></h6>
-                            <p class="m-0px font-w-600">Active Volunteer Operations</p>
+                            <p class="m-0px font-w-600">Active Volunteering Operations</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="bg-dark text-white">
-                
+            <div class=" mt-4">
+                <h2 class="dark-color mb-3">Active Volunteering Operations</h2>
+                <?php include "./parts/Volunteering_a_cards.php"; ?>
             </div>
         </div>
     </section>

@@ -8,7 +8,7 @@ function redirectToLoginIfNotLoggedIn()
 function getAllVolunteeringOpportunities($conn)
 {
     // استيراد القيم بتاعة العمليات التطوعية
-    $sql = "SELECT * FROM volunteering";
+    $sql = "SELECT * FROM Volunteering WHERE availability>0";
     // تخزين القيم 
     $result = mysqli_query($conn, $sql);
     // استجلاب للقيم
@@ -92,7 +92,6 @@ function handleVolunteeringDeleting($volunteering, $user, $conn) {
 function delete_volunteering($userID, $volunteering_id, $conn){
     $sql = "DELETE FROM Volunteering_details WHERE volunteer_id = $userID AND volunteering_id=$volunteering_id";
     mysqli_query($conn, $sql);
-    echo '<script type=text/javascript> alert("You have been registered for this Volunteering opportunity before!");window.location.href=window.location.href;</script>';
-
+    echo '<script type=text/javascript> alert("You have been successfully Unregistered for this Volunteering opportunity ");window.location.href=window.location.href;</script>';
 }
 ?>
