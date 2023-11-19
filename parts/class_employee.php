@@ -44,5 +44,13 @@
                 $result->close();
             }
     }
+    public function completed_volunteering($volunteering_id, $conn){
+        $sql = "UPDATE Volunteering SET availability = 0 WHERE id = $volunteering_id";
+        if (mysqli_query($conn, $sql)) {
+            echo '<script type=text/javascript> alert("You have successfully Completed this Volunteering opportunity!");window.location.href=window.location.href;</script>';
+        } else {
+            echo "Error updating record: " . mysqli_error($conn);
+        }
+    }
 }
 ?>

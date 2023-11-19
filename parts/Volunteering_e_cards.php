@@ -28,10 +28,11 @@
                             <?php echo "Required Skills : " . htmlspecialchars($vo["required_skills"]); ?>
                         </li>
                     </ul>
+
                     <button type="submit" name="completed_<?php echo htmlspecialchars($vo["id"]); ?>"
                         class="btn btn-outline-success m-1">Completed</button>
                     <button type="submit" name="view_<?php echo htmlspecialchars($vo["id"]); ?>"
-                        class="btn btn-outline-secondary m-1">View</button>
+                        class="btn btn-outline-secondary m-1">View & Rate</button>
                     <button type="submit" name="delete_<?php echo htmlspecialchars($vo["id"]); ?>"
                         class="btn btn-outline-danger m-1">Delete</button>
                     
