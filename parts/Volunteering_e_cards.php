@@ -32,9 +32,10 @@
                     <button type="submit" name="completed_<?php echo htmlspecialchars($vo["id"]); ?>"
                         class="btn btn-outline-success m-1">Completed</button>
                     <button type="submit" name="view_<?php echo htmlspecialchars($vo["id"]); ?>"
-                        class="btn btn-outline-secondary m-1">View & Rate</button>
+                        class="btn btn-outline-secondary m-1" data-bs-toggle="modal"
+                        data-bs-target="view&rate">View & Rate</button>
                     <button type="submit" name="delete_<?php echo htmlspecialchars($vo["id"]); ?>"
-                        class="btn btn-outline-danger m-1">Delete</button>
+                        class="btn btn-outline-danger m-1"  >Delete</button>
                     
                     
                 </div>
