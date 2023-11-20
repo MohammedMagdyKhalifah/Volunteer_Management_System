@@ -5,7 +5,7 @@
                 <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center mb-4">
                     <form class="" action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                         <div class="card h-100" style="">
-                            <img src="./img/Default_volunteering.jpg" class="card-img-top img-fluid" alt="image">
+                            <img src="./../img/Default_volunteering.jpg" class="card-img-top img-fluid" alt="image">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <?php echo htmlspecialchars($vo["title"]); ?>

@@ -2,7 +2,7 @@
 session_start();
 // Config
 // اتصل بالداتا بيس
-include "./inc/config_db.php";
+include "./../inc/config_db.php";
 
 
 if(isset($_POST['submit'])){
@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
    if(mysqli_num_rows($result) > 0){
       $_SESSION['loggedin'] = true;
       $_SESSION['email'] = $email;
-      header('location:v_homepage.php');
+      header('location: v_homepage.php');
       exit;
       
      
@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
          <div class="card mt-5 p-2 shadow bg-body-tertiary rounded">
             
             <!-- Centered Image -->
-            <img src="./img/logo.png" class="card-img-top mx-auto d-block" style="width: 100px;" alt="logo">
+            <img src="./../img/logo.png" class="card-img-top mx-auto d-block" style="width: 100px;" alt="logo">
 
             <div class="card-body">
                <form action="" method="post" class="p-4">
@@ -87,4 +87,4 @@ if(isset($_POST['submit'])){
 
 </body>
 </html>
-<?php include "./inc/close_db.php"; ?>
+<?php include "./../inc/close_db.php"; ?>

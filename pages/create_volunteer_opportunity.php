@@ -18,7 +18,6 @@ if (isset($_POST['submit'])){
     $hours = $_POST['hours'];
     $required_skills = $_POST['required_skills'];
     $max_size = $_POST['max_size'];
-    
     $employee->Create_volunteer_opportunity($title,$description,$location,$start_date,$end_date,$hours,$required_skills,$max_size,$conn);
     echo '<script type=text/javascript> alert("You have successfully Created a Volunteering opportunity!");window.location.href=window.location.href;</script>';
 }

@@ -9,7 +9,7 @@ if (isset($_POST['submit_account'])) {
 <!-- start navbar -->
 <nav class="navbar navbar-expand-lg bg-body-secondary mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" href="v_homepage.php">VOLUNTEERING</a>
+            <a class="navbar-brand" href="#">VOLUNTEERING</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">

@@ -1,7 +1,10 @@
 <?php
+include "./../inc/config_db.php";
+include "./../parts/functons.php";
+
+include "./../parts/class_user.php";
 session_start();
-include "./inc/config_db.php";
-include "./parts/functons.php";
+
 // if (!(isset($_SESSION['loggedin']))) {
 //     header('location:./login_v.php');
 // }
@@ -9,7 +12,6 @@ redirectToLoginIfNotLoggedIn();
 
 
 
-include "./parts/class_user.php";
 $user = new User($_SESSION["email"], $conn);
 
 
@@ -61,13 +63,13 @@ if (isset($_POST['submit_logout'])) {
 
 <body>
     <!-- start navbar -->
-    <?php include './parts/v_home_navbar.php'; ?>
+    <?php include './../parts/v_home_navbar.php'; ?>
     <!-- end navbar -->
 
     <!-- start container -->
     <div class="container"> <!-- d-flex justify-content-between -->
-        <?php include "./parts/Volunteering_cards.php"; ?>
-
+        <h1 class="mb-3">volunteering opportunity</h1>
+        <?php include "./../parts/Volunteering_cards.php"; ?>
     </div>
 
     <!-- End container -->
@@ -78,4 +80,4 @@ if (isset($_POST['submit_logout'])) {
 </body>
 
 </html>
-<?php include './inc/close_db.php'; ?>
+<?php include './../inc/close_db.php'; ?>

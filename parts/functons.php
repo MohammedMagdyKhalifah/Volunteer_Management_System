@@ -2,7 +2,7 @@
 function redirectToLoginIfNotLoggedIn()
 {
     if (!(isset($_SESSION['loggedin']))) {
-        header('location:./login_v.php');
+        header('location: ./login_v.php');
     }
 }
 function getAllVolunteeringOpportunities($conn)

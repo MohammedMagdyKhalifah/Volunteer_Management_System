@@ -1,4 +1,5 @@
 <?php
+include "./../inc/config_db.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // $sql = "SELECT* FROM `volunteer`";
 // $result = mysqli_query($conn, $sql);
@@ -34,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

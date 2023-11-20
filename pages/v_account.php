@@ -1,10 +1,13 @@
 <?php
-include "./parts/class_user.php";
-include "./inc/config_db.php";
-include "./parts/functons.php";
+include "./../parts/class_user.php";
+include "./../inc/config_db.php";
+include "./../parts/functons.php";
 session_start();
-if (!(isset($_SESSION['employee']))) {
-    header('location:./login_v.php');
+// if (!(isset($_SESSION['employee']))) {
+//     header('location: ./login_v.php');
+// }
+if (!(isset($_SESSION["email"]))) {
+    header('location: ./login_v.php');
 }
 
 
@@ -50,7 +53,7 @@ handleVolunteeringDeleting($volunteering, $user, $conn);
 </head>
 
 <body class="bg-light text-dark">
-    <?php include "./parts/v_account_navbar.php" ?>
+    <?php include "./../parts/v_account_navbar.php" ?>
     <section class="section" id="about">
         <div class="container">
             <h1 class="dark-color">Account</h1>
@@ -92,7 +95,7 @@ handleVolunteeringDeleting($volunteering, $user, $conn);
                                 </div>
                                 <button type="button" class="btn btn-outline-primary m-2 px-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Edit profile</button>
-                                <?php include "./parts/v_edit_profile.php" ?>
+                                <?php include "./../parts/v_edit_profile.php" ?>
                             </div>
                         </div>
                     </div>
@@ -127,7 +130,7 @@ handleVolunteeringDeleting($volunteering, $user, $conn);
             </div>
             <div class=" mt-4">
                 <h2 class="dark-color mb-3">Active Volunteering Operations</h2>
-                <?php include "./parts/Volunteering_a_cards.php"; ?>
+                <?php include "./../parts/Volunteering_a_cards.php"; ?>
             </div>
         </div>
     </section>
@@ -137,4 +140,4 @@ handleVolunteeringDeleting($volunteering, $user, $conn);
 </body>
 
 </html>
-<?php include './inc/close_db.php'; ?>
+<?php include './../inc/close_db.php'; ?>
