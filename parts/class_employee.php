@@ -89,33 +89,33 @@ class Employee
     }
     public function RateIfNotRated($volunteering_id, $conn)
     {
-        // لو كان مقيمها
-        $sql = "SELECT is_rated FROM Volunteering WHERE id=$volunteering_id AND is_rated>0 ;";
+        // Check if already rated
+        $volunteering_id_escaped = mysqli_real_escape_string($conn, $volunteering_id);
+        $sql = "SELECT is_rated FROM Volunteering WHERE id = $volunteering_id_escaped AND is_rated > 0";
         $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0){
+        if (mysqli_num_rows($result) > 0) {
             return;
         } else {
-            // هات كل المتطوعين المسجلين
-            $volunteerIdsSql = "SELECT volunteer_id FROM Volunteering_details WHERE volunteering_id = $volunteering_id";
-            $volunteerIdsResult = mysqli_query($conn,$volunteerIdsSql);
+            // Retrieve all volunteers for the specific volunteering_id
+            $volunteerIdsSql = "SELECT volunteer_id FROM Volunteering_details WHERE volunteering_id = $volunteering_id_escaped";
+            $volunteerIdsResult = mysqli_query($conn, $volunteerIdsSql);
             $volunteers = mysqli_fetch_all($volunteerIdsResult, MYSQLI_ASSOC);
-            // اضافة تقييم لكل متطوع
+
+            // Update rate for each volunteer
             foreach ($volunteers as $volunteer) {
                 $rate = 10;
-                // echo $volunteer['name'].$rate;
-                $id = $volunteer["id"];
-                $sql = "UPDATE volunteer
-                SET rates = rates + $rate
-                WHERE `volunteer`.`id` = $id ;";
-                if (!mysqli_query($conn, $sql)) {
-                    echo "error in updating rate" . mysqli_error($conn);
+                $id = mysqli_real_escape_string($conn, $volunteer["volunteer_id"]);
+                $updateSql = "UPDATE volunteer SET rates = rates + $rate WHERE id = $id";
+                if (!mysqli_query($conn, $updateSql)) {
+                    echo "Error in updating rate: " . mysqli_error($conn);
                 }
             }
-            $sql3 = "UPDATE Volunteering SET is_rated=1 WHERE id=$volunteering_id";
-            if (!mysqli_query($conn, $sql3)) {
-                echo "error and updating rateIfNotRated" . mysqli_error($conn);
+
+            // Update Volunteering is_rated
+            $updateVolunteeringSql = "UPDATE Volunteering SET is_rated = 1 WHERE id = $volunteering_id_escaped";
+            if (!mysqli_query($conn, $updateVolunteeringSql)) {
+                echo "Error in updating rateIfNotRated: " . mysqli_error($conn);
             }
-            return;
         }
     }
     public function completed_volunteering($volunteering_id, $conn)
