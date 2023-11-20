@@ -8,31 +8,18 @@ if (!(isset($_SESSION['volunteering_id']))) {
 }
 $employee = unserialize($_SESSION['employee']);
 $volunteering_id = $_SESSION['volunteering_id'];
-// echo $volunteering_id;
-function getVolunteeringName($volunteering_id, $conn)
-{
-    $sql = "SELECT title FROM Volunteering WHERE id = $volunteering_id";
-    $result = mysqli_query($conn, $sql);
-    return mysqli_fetch_all($result, MYSQLI_ASSOC)[0]["title"];
-}
-$volunteering_name = getVolunteeringName($volunteering_id, $conn);
-function getAllVolunteers($volunteering_id, $conn){
 
-    $sql = "SELECT volunteer.id, volunteer.name, volunteer.phone,volunteer.academic_id, volunteer.skills, volunteer.rates
-            FROM volunteer
-            INNER JOIN Volunteering_details ON volunteer.id = Volunteering_details.volunteer_id
-            WHERE Volunteering_details.volunteering_id = $volunteering_id; ";
-    $result = mysqli_query($conn, $sql);
-    return mysqli_fetch_all($result, MYSQLI_ASSOC);
-}
-$volunteers = getAllVolunteers($volunteering_id,$conn);
+// echo $volunteering_id;
+
+$volunteering_name = $employee->getVolunteeringName($volunteering_id, $conn);
+
+$volunteers = $employee->getAllVolunteers($volunteering_id,$conn);
 
 
 
 
 // if he saved
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     if (isset($_POST['save'])){
         $employee->saveRates($volunteers,$volunteering_id,$conn);
     }
