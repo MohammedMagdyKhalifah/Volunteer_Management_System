@@ -169,5 +169,39 @@ class Employee
             echo '<script type=text/javascript> alert("You have Successfully Rated this Volunteering opportunity!");window.location.href=window.location.href;</script>';
         }
     }
+    public function delete_volunteering($volunteering_id, $conn)
+    {
+        $volunteering_id_escaped = mysqli_real_escape_string($conn, $volunteering_id);
+
+        // SQL to delete the volunteering entry
+        $sql = "DELETE FROM Volunteering WHERE id = $volunteering_id_escaped";
+
+        // Execute the query
+        if (mysqli_query($conn, $sql)) {
+            echo '<script type=text/javascript> alert("You have successfully Deleted this Volunteering opportunity!");window.location.href=window.location.href;</script>';
+        } else {
+            echo "Error deleting volunteering entry: " . mysqli_error($conn);
+        }
+    }
+
+    public function Create_volunteer_opportunity($title, $description, $location, $start_date, $end_date, $hours, $required_skills, $max_size, $conn)
+    {
+        $employee_id = (int) $this->id;
+        $title = mysqli_real_escape_string($conn, $title);
+        $description = mysqli_real_escape_string($conn, $description);
+        $location = mysqli_real_escape_string($conn, $location);
+        $start_date = mysqli_real_escape_string($conn, $start_date);
+        $end_date = mysqli_real_escape_string($conn, $end_date);
+        $hours = mysqli_real_escape_string($conn, $hours);
+        $required_skills = mysqli_real_escape_string($conn, $required_skills);
+        $max_size = mysqli_real_escape_string($conn, $max_size);
+
+        $sql = "INSERT INTO `Volunteering` (`title`, `description`, `employee_id`, `location`, `start_date`, `end_date`, `hours`, `required_skills`, `availability`, `max_size`, `rate`, `is_rated`) 
+            VALUES ('$title', '$description', $employee_id, '$location', '$start_date', '$end_date', '$hours', '$required_skills', 1, '$max_size', 0, 0);";
+
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error in Create_volunteer_opportunity: " . mysqli_error($conn);
+        }
+    }
 }
 ?>

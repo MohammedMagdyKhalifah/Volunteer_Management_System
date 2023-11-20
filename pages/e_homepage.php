@@ -16,7 +16,7 @@ function handleVolunteeringCompleted($employee, $volunteering, $conn)
 {
     foreach ($volunteering as $vo) {
         $volunteering_id = $vo["id"];
-        // لو اتنيل بروح امه المستخدم وضغط على ام  التسجيل
+
         if (isset($_POST['completed_' . $volunteering_id])) {
             // echo "submit_".$volunteering_id;]
             // echo 'completed_' . $volunteering_id;
@@ -44,6 +44,19 @@ function handleVolunteeringView($employee, $volunteering, $conn)
 }
 
 handleVolunteeringView($employee, $volunteering, $conn);
+
+function handleVolunteeringDelete($employee, $volunteering, $conn)
+{
+    foreach ($volunteering as $vo) {
+        $volunteering_id = $vo["id"];
+
+        if (isset($_POST['delete_' . $volunteering_id])) {
+            // echo "delete".$volunteering_id;
+            $employee->delete_volunteering($volunteering_id, $conn);
+        }
+    }
+}
+handleVolunteeringDelete($employee, $volunteering, $conn);
 
 ?>
 <!DOCTYPE html>

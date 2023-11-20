@@ -27,10 +27,10 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <!-- اختيار الهوم المفعل شوف صفحته ايش المفعل والغي التفعيل حق هذي وفعل الثانية -->
-                        <a class="nav-link active" aria-current="page" href="e_homepage.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="e_homepage.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="create_volunteer_opportunity.php">Create volunteer opportunity</a>
+                        <a class="nav-link active" aria-current="page" href="create_volunteer_opportunity.php">Create volunteer opportunity</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Ranking</a>
