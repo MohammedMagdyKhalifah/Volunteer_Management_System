@@ -13,6 +13,7 @@ redirectToLoginIfNotLoggedIn();
 
 
 $user = new User($_SESSION["email"], $conn);
+$_SESSION['user'] = serialize($user);
 
 
 

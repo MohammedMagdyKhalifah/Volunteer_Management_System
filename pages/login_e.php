@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 
    if(mysqli_num_rows($result) > 0){
       $_SESSION['employee'] = true;
-      $_SESSION['email'] = $email;;
+      $_SESSION['email'] = $email;
       $employee = new Employee($_SESSION['email'],$conn);
       $_SESSION['employee']=serialize($employee);
       header('location: ./e_homepage.php');

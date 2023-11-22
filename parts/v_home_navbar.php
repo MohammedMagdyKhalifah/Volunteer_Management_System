@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['submit_account'])) {
     $_SESSION['email'] =$user->email;
-    $_SESSION['user'] = serialize($user);
     header("Location: v_account.php");
     exit();
   }
@@ -22,7 +21,7 @@ if (isset($_POST['submit_account'])) {
                         <a class="nav-link active" aria-current="page" href="v_homepage.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Ranking</a>
+                        <a class="nav-link" aria-current="page" href="ranking_v.php">Ranking</a>
                     </li>
                 </ul>
                 <!-- لو صفحتك مافيها بحث احذف قسم البحث -->

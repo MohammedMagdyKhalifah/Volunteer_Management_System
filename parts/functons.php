@@ -95,4 +95,11 @@ function delete_volunteering($userID, $volunteering_id, $conn){
     mysqli_query($conn, $sql);
     echo '<script type=text/javascript> alert("You have been successfully Unregistered for this Volunteering opportunity ");window.location.href=window.location.href;</script>';
 }
+function ordinal($number) {
+    $ends = ['th','st','nd','rd','th','th','th','th','th','th'];
+    if ((($number % 100) >= 11) && (($number % 100) <= 13))
+        return $number. 'th';
+    else
+        return $number. $ends[$number % 10];
+}
 ?>
