@@ -6,6 +6,12 @@
         header('location: login_v.php');
         exit();
     }
+    if (isset($_POST['submit_account'])) {
+        $_SESSION['email'] =$user->email;
+        header("Location: v_account.php");
+        exit();
+      }
+
 ?>
 <!-- start navbar -->
 <nav class="navbar navbar-expand-lg bg-body-secondary mb-3">
@@ -23,7 +29,7 @@
                         <a class="nav-link" aria-current="page" href="v_homepage.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="ranking_v.php">Ranking</a>
+                        <a class="nav-link active" aria-current="page" href="ranking_v.php">Ranking</a>
                     </li>
                 </ul>
                 <!-- لو صفحتك مافيها بحث احذف قسم البحث -->
