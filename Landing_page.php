@@ -11,13 +11,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="./css/landingPage.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="">
 
 
     <!-- Header navbar Section -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-dark-subtle text-emphasis-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="https://www.taibahu.edu.sa/Pages/AR/Home.aspx">
                 <img src="./img/logo.png" alt="Logo" style="height: 7vh;">
@@ -38,7 +39,7 @@
                             Volunteer
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="volunteerDropdown">
-                            <li><a class="dropdown-item" href="#">Login</a></li>
+                            <li><a class="dropdown-item" href="./pages/login_v.php">Login</a></li>
                             <li><a class="dropdown-item" href="#">Register</a></li>
                         </ul>
                     </li>
@@ -49,7 +50,7 @@
                             Employee
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="employeeDropdown">
-                            <li><a class="dropdown-item" href="#">Login</a></li>
+                            <li><a class="dropdown-item" href="./pages/login_e.php">Login</a></li>
                             <li><a class="dropdown-item" href="#">Register</a></li>
                         </ul>
                     </li>
@@ -58,17 +59,48 @@
         </div>
     </nav>
 
-    <!-- Introduction Section -->
-    <section class="py-5">
-        <div class="containerr">
-            <h1 class="">Welcome to Volunteering</h1>
-            <div>
-                <h3>What is Volunteering?</h2>
-                <p class="lead">Your one-stop platform to manage and participate in volunteering activities.</p>
+    <!-- Container Section -->
+    <section class="py-3 bg-body-secondary">
+    <div class="container">
+        <h1 class="mb-3 text-center">Welcome to Volunteering</h1>
+        <div class="d-flex justify-content-center mb-3">
+            <div id="carouselExampleAutoplaying" class="carousel slide w-50" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./img/3.png" class="rounded mx-auto d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/4.png" class="rounded mx-auto d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-
         </div>
-    </section>
+        <div>
+            <h3>What is Volunteering?</h3>
+            <p class="lead align-mixed">Volunteering is a website that is customized Volunteer Management System
+                        (VMS) at Taibah University, intricately designed to meet the dynamic needs of two main user
+                        groups: volunteers and university staff. At its core, our platform is a powerful, user-focused
+                        tool that simplifies the volunteering process, making it more accessible and manageable for
+                        individuals eager to donate their time and skills to a good cause. For volunteers, our website
+                        serves as a gateway to countless volunteer opportunities. It allows them to easily browse,
+                        register, and commit to activities that match their interests and schedules. On the other hand,
+                        for university employees looking for volunteers, our website serves as an effective
+                        administrative interface. It provides them with comprehensive administrative capabilities – from
+                        posting new volunteer opportunities and moderating volunteer registrations to modifying or
+                        removing listings as needed. Our VMS is more than just a platform; It is a bridge that connects
+                        goodwill to action, ensuring a smooth, productive and enriching experience for all parties
+                        involved in the volunteer journey.</p>
+        </div>
+    </div>
+</section>
 
     <!-- Footer Section -->
     <footer class="bg-dark text-white py-4">
