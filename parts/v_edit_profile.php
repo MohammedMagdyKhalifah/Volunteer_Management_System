@@ -1,5 +1,4 @@
 <?php
-include "./../inc/config_db.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // $sql = "SELECT* FROM `volunteer`";
 // $result = mysqli_query($conn, $sql);
@@ -108,4 +107,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </form>
-<?php include "./../inc/close_db.php" ?>

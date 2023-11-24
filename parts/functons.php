@@ -15,26 +15,26 @@ function getAllVolunteeringOpportunities($conn)
     // ويخزنها على شكل مصفوفة
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
-function register_to_volunteering($userID, $volunteering_id, $conn)
-{
-    // لو مسجل قبل كده 
-    $sql2 = "SELECT *  FROM Volunteering_details WHERE volunteer_id =$userID AND volunteering_id=$volunteering_id";
-    $result1 = mysqli_query($conn, $sql2);
-    $aresult1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
-    // print_r($aresult1);
+// function register_to_volunteering($userID, $volunteering_id, $conn)
+// {
+//     // لو مسجل قبل كده 
+//     $sql2 = "SELECT *  FROM Volunteering_details WHERE volunteer_id =$userID AND volunteering_id=$volunteering_id";
+//     $result1 = mysqli_query($conn, $sql2);
+//     $aresult1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
+//     // print_r($aresult1);
 
-    if (!empty($aresult1)) {
-        echo '<script type=text/javascript> alert("You have been registered for this Volunteering opportunity before!");window.location.href=window.location.href;</script>';
-    } else {
-        $sql3 = "INSERT INTO Volunteering_details(id, volunteer_id, volunteering_id)
-        VALUES (NULL, '$userID', '$volunteering_id');";
-        if (mysqli_query($conn, $sql3)) {
-            echo '<script type=text/javascript> alert("You have successfully registered for this Volunteering opportunity!");window.location.href=window.location.href;</script>';
-        } else {
-            echo "Error" . mysqli_connect_error();
-        }
-    }
-}
+//     if (!empty($aresult1)) {
+//         echo '<script type=text/javascript> alert("You have been registered for this Volunteering opportunity before!");window.location.href=window.location.href;</script>';
+//     } else {
+//         $sql3 = "INSERT INTO Volunteering_details(id, volunteer_id, volunteering_id)
+//         VALUES (NULL, '$userID', '$volunteering_id');";
+//         if (mysqli_query($conn, $sql3)) {
+//             echo '<script type=text/javascript> alert("You have successfully registered for this Volunteering opportunity!");window.location.href=window.location.href;</script>';
+//         } else {
+//             echo "Error" . mysqli_connect_error();
+//         }
+//     }
+// }
 function handleVolunteeringRegistration($volunteering, $user, $conn){
     foreach ($volunteering as $vo) {
         $volunteering_id = $vo["id"];
@@ -42,7 +42,7 @@ function handleVolunteeringRegistration($volunteering, $user, $conn){
         if (isset($_POST['submit_' . $volunteering_id])) {
             // echo "submit_".$volunteering_id;]
             // echo 'submit_' . $volunteering_id;
-            register_to_volunteering($user->id, $volunteering_id, $conn);
+            $user->register_to_volunteering($volunteering_id, $conn);
         }
     }
 }
@@ -86,12 +86,14 @@ function handleVolunteeringDeleting($volunteering, $user, $conn) {
         if (isset($_POST['submit_' . $volunteering_id])) {
             // echo "submit_".$volunteering_id;]
             // echo 'submit_' . $volunteering_id;
-            delete_volunteering($user->id, $volunteering_id, $conn);
+            $user->delete_volunteering($volunteering_id, $conn);
         }
     }
 }
 function delete_volunteering($userID, $volunteering_id, $conn){
-    $sql = "DELETE FROM Volunteering_details WHERE volunteer_id = $userID AND volunteering_id=$volunteering_id";
+    $sql = "DELETE FROM Volunteering_details 
+    WHERE volunteer_id = $userID 
+    AND volunteering_id=$volunteering_id";
     mysqli_query($conn, $sql);
     echo '<script type=text/javascript> alert("You have been successfully Unregistered for this Volunteering opportunity ");window.location.href=window.location.href;</script>';
 }

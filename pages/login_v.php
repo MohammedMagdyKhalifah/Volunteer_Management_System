@@ -3,7 +3,7 @@ session_start();
 // Config
 // اتصل بالداتا بيس
 include "./../inc/config_db.php";
-
+include "./../parts/class_user.php";
 
 if(isset($_POST['submit'])){
 
@@ -17,6 +17,10 @@ if(isset($_POST['submit'])){
    if(mysqli_num_rows($result) > 0){
       $_SESSION['loggedin'] = true;
       $_SESSION['email'] = $email;
+      // انشاء اوبجكت
+      $user = new User($_SESSION["email"], $conn);
+      // ارسال الاوبجكت
+      $_SESSION['user'] = serialize($user);
       header('location: v_homepage.php');
       exit;
       

@@ -24,16 +24,11 @@ if($user->available>0){
     $available="Not available";
 }
 
-$active_volunteer = count_active_volunteer_operations($user->id,$conn);
+$active_volunteer = $user->count_active_volunteer_opportunities($conn);
 
-$sql = "SELECT Volunteering.*
-FROM Volunteering INNER JOIN Volunteering_details
-ON Volunteering.id = Volunteering_details.volunteering_id
-WHERE Volunteering.availability>0 AND Volunteering_details.volunteer_id = $user->id ";
 
-$result = mysqli_query($conn, $sql);
 
-$volunteering = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$volunteering = $user->get_all_registered_volunteer_opportunities($conn);
 
 handleVolunteeringDeleting($volunteering, $user, $conn);
 

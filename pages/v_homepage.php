@@ -8,12 +8,12 @@ session_start();
 // if (!(isset($_SESSION['loggedin']))) {
 //     header('location:./login_v.php');
 // }
+
 redirectToLoginIfNotLoggedIn();
 
 
-
-$user = new User($_SESSION["email"], $conn);
-$_SESSION['user'] = serialize($user);
+// استقبال الاوبجكت 
+$user = unserialize($_SESSION['user']);
 
 
 
@@ -25,23 +25,14 @@ $_SESSION['user'] = serialize($user);
 // echo $_SESSION["email"] . " welcom";
 
 
-// استيراد القيم بتاعة العمليات التطوعية
-$sql = "SELECT * FROM volunteering WHERE availability>0";
-// تخزين القيم 
-$result = mysqli_query($conn, $sql);
-// استجلاب للقيم
-// ويخزنها على شكل مصفوفة
-$volunteering = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$volunteering = $user->getAllVolunteerings($conn);
 
 // طباعة عشان اتاكد غير آمنة
 // echo "<pre>";
 // print_r($volunteering);
 // echo "</pre>"; 
 
-// class volunteering
-// {
-
-// }
 
 // Handle the fucking submit
 // بقالي اربع ساعات فيكي يابنت الكلب عشان اعمل لامك هاندل
