@@ -33,7 +33,7 @@ if (isset($_POST['submit'])){
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-light">
     <?php include "./../parts/create_volunteer_navbar.php" ?>
     <div class="container mt-5">
         <h1>Volunteer opportunity form</h1>

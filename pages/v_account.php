@@ -47,12 +47,12 @@ handleVolunteeringDeleting($volunteering, $user, $conn);
     <!-- <link rel="stylesheet" href="./css/style_account_v.css"> -->
 </head>
 
-<body class="bg-light text-dark">
+<body class="text-dark bg-light">
     <?php include "./../parts/v_account_navbar.php" ?>
     <section class="section" id="about">
         <div class="container">
             <h1 class="dark-color">Account</h1>
-            <div class="row align-items-center flex-row-reverse">
+            <div class="row align-items-center flex-row-reverse ">
                 <div class="col-lg-6">
                     <div class="about-text go-to">
                         <h4 class="theme-color"><?php echo htmlspecialchars($user->name) ?></h4>
@@ -101,7 +101,7 @@ handleVolunteeringDeleting($volunteering, $user, $conn);
                     </div>
                 </div>
             </div>
-            <div class="counter text-bg-secondary p-2">
+            <div class="counter bg-white shadow p-3">
                 <div class="row">
                     <div class="col-6 col-lg-4">
                         <div class="count-data text-center">
@@ -112,19 +112,19 @@ handleVolunteeringDeleting($volunteering, $user, $conn);
                     <div class="col-6 col-lg-4">
                         <div class="count-data text-center">
                             <h6 class="count h2" ><?php echo htmlspecialchars($user->number_v); ?></h6>
-                            <p class="m-0px font-w-600">Volunteering Operations</p>
+                            <p class="m-0px font-w-600">Volunteering opportunities</p>
                         </div>
                     </div>
                     <div class="col-6 col-lg-4">
                         <div class="count-data text-center">
                             <h6 class="count h2" ><?php echo $active_volunteer; ?></h6>
-                            <p class="m-0px font-w-600">Active Volunteering Operations</p>
+                            <p class="m-0px font-w-600">Active Volunteering opportunities</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=" mt-4">
-                <h2 class="dark-color mb-3">Active Volunteering Operations</h2>
+            <div class="mt-4">
+                <h2 class="dark-color mb-3">Active Volunteering opportunities</h2>
                 <?php include "./../parts/Volunteering_a_cards.php"; ?>
             </div>
         </div>

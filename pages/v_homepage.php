@@ -53,7 +53,7 @@ if (isset($_POST['submit_logout'])) {
     <title>Home Page</title>
 </head>
 
-<body>
+<body class="bg-light">
     <!-- start navbar -->
     <?php include './../parts/v_home_navbar.php'; ?>
     <!-- end navbar -->

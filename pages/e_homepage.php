@@ -71,7 +71,7 @@ handleVolunteeringDelete($employee, $volunteering, $conn);
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-light">
     <?php include "./../parts/e_home_navbar.php" ?>
     <div class="container">
         <h1 class="mb-3">Active volunteering opportunity</h1>

@@ -60,7 +60,7 @@
     </nav>
 
     <!-- Container Section -->
-    <section class="py-3 bg-body-secondary">
+    <section class="py-3 bg-light">
     <div class="container">
         <h1 class="mb-3 text-center">Welcome to Volunteering</h1>
         <div class="d-flex justify-content-center mb-3">
