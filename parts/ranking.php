@@ -3,7 +3,7 @@
     <div class="accordion" id="volunteerAccordion">
         <?php 
         $counter = 1;
-        foreach ($volunteers as $volunteer): 
+        foreach ($volunteers as $volunteer):
             // يسوي سطر جديد لكل ثلاث عناصر
             if ($counter % 3 == 1) {
                 echo '<div class="row">';
