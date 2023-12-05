@@ -54,8 +54,9 @@ if(isset($_POST['submit'])){
          <div class="card mt-5 p-2 shadow bg-body-tertiary rounded">
             
             <!-- Centered Image -->
-            <img src="./../img/logo.png" class="card-img-top mx-auto d-block" style="width: 100px;" alt="logo">
-
+            <a href="./../Landing_page.php">
+                  <img src="../img/logo.png" class="card-img-top mx-auto d-block" style="width: 100px;" alt="logo">
+               </a>
             <div class="card-body">
                <form action="" method="post" class="p-4">
 
