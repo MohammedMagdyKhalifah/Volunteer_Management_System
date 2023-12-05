@@ -131,5 +131,15 @@ class User
         mysqli_query($conn, $sql);
         echo '<script type=text/javascript> alert("You have been successfully Unregistered for this Volunteering opportunity ");window.location.href=window.location.href;</script>';
     }
+    function search_volunteering($text,$conn){
+        $text = mysqli_real_escape_string($conn,$text);
+        $sql ="  SELECT * FROM Volunteering
+        WHERE Volunteering.availability > 0
+        AND (title LIKE '%$text%'
+        OR required_skills LIKE '%$text%'
+        OR description LIKE '%$text%')";
+        $result = mysqli_query($conn,$sql);
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
 }
 ?>

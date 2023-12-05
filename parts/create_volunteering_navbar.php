@@ -1,14 +1,10 @@
 <?php
     if (isset($_POST['submit_account'])) {
-        $_SESSION['email'] =$employee->email;
-        $_SESSION['employee'] = serialize($employee);
         header("Location: e_account.php");
         exit();
     }
     if (isset($_POST['submit_logout'])) {
-        session_start();
-        session_unset();
-        session_destroy();
+        log_out();
         header('location: ./login_e.php');
         exit();
     }
@@ -30,7 +26,7 @@
                         <a class="nav-link" aria-current="page" href="e_homepage.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="create_volunteer_opportunity.php">Create volunteer opportunity</a>
+                        <a class="nav-link active" aria-current="page" href="create_volunteering_opportunity.php">Create volunteer opportunity</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="ranking_e.php">Ranking</a>

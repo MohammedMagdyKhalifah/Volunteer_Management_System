@@ -40,6 +40,7 @@ handleVolunteeringRegistration($volunteering, $user, $conn);
 
 if (isset($_POST['submit_logout'])) {
     log_out();
+    header("Location: ./login_v.php");
 }
 ?>
 <!DOCTYPE html>

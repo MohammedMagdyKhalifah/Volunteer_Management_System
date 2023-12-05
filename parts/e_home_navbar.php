@@ -1,16 +1,15 @@
 <?php
     if (isset($_POST['submit_account'])) {
-        $_SESSION['email'] =$employee->email;
-        $_SESSION['employee'] = serialize($employee);
         header("Location: e_account.php");
         exit();
     }
     if (isset($_POST['submit_logout'])) {
-        session_start();
-        session_unset();
-        session_destroy();
+        log_out();
         header('location: ./login_e.php');
         exit();
+    }
+    if(isset($_POST['search'])){
+        $volunteering=$employee->search_volunteering($_POST['search'],$conn);
     }
   
 ?>
@@ -30,15 +29,15 @@
                         <a class="nav-link active" aria-current="page" href="e_homepage.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="create_volunteer_opportunity.php">Create volunteer opportunity</a>
+                        <a class="nav-link" aria-current="page" href="create_volunteering_opportunity.php">Create volunteer opportunity</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="ranking_e.php">Ranking</a>
                     </li>
                 </ul>
                 <!-- لو صفحتك مافيها بحث احذف قسم البحث -->
-                <form class="d-flex " role="search">
-                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" role="search">
+                    <input class="form-control " type="search" name="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success me-4 ms-1" type="submit">Search</button>
                 </form>
                 <!-- الانتقال لصفحة الحساب -->

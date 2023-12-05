@@ -34,7 +34,7 @@ if (isset($_POST['submit'])){
 </head>
 
 <body class="bg-light">
-    <?php include "./../parts/create_volunteer_navbar.php" ?>
+    <?php include "./../parts/create_volunteering_navbar.php" ?>
     <div class="container mt-5 col-md-8 mb-4">
         <h1>Volunteering opportunity form</h1>
         <form class="" action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">

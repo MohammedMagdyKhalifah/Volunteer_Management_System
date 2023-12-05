@@ -212,5 +212,17 @@ class Employee
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+    public function search_volunteering($text, $conn)
+    {
+        $text = mysqli_real_escape_string($conn,$text);
+        $sql = "SELECT * 
+            FROM Volunteering 
+            WHERE ( employee_id = $this->id 
+            AND availability > 0 ) AND (title LIKE '%$text%'
+            OR required_skills LIKE '%$text%'
+            OR description LIKE '%$text%') ";
+        $result = mysqli_query($conn, $sql);
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
 }
 ?>
