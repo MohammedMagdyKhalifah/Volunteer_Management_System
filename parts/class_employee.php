@@ -204,7 +204,11 @@ class Employee
         }
     }
     public function getRanking($conn){
-        $sql = "SELECT name, volunteering_hours, skills, number_v, rate FROM volunteer ORDER BY `volunteer`.`volunteering_hours` DESC LIMIT 10;";
+        $sql = "SELECT name, volunteering_hours, skills, number_v, rate
+        FROM volunteer
+        WHERE volunteering_hours>0
+        ORDER BY `volunteer`.`volunteering_hours`
+        DESC LIMIT 10";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
