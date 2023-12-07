@@ -34,24 +34,24 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex">
                     <!-- Volunteer Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="volunteerDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="./pages/login_v.php" id="volunteerDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Volunteer
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="volunteerDropdown">
                             <li><a class="dropdown-item" href="./pages/login_v.php">Login</a></li>
-                            <li><a class="dropdown-item" href="#">Register</a></li>
+                            <li><a class="dropdown-item" href="./pages/register_form_for_volnteer.php">Register</a></li>
                         </ul>
                     </li>
                     <!-- Employee Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="employeeDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="./pages/login_e.php" id="employeeDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Employee
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="employeeDropdown">
                             <li><a class="dropdown-item" href="./pages/login_e.php">Login</a></li>
-                            <li><a class="dropdown-item" href="#">Register</a></li>
+                            <li><a class="dropdown-item" href="./pages/register_form_for_employee.php">Register</a></li>
                         </ul>
                     </li>
                 </ul>

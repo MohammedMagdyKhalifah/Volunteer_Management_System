@@ -79,7 +79,7 @@ if(isset($_POST['submit'])){
                   <div class="form-group d-grid gap-2 col-12 mx-auto mt-3 my-4">
                      <input type="submit" name="submit" value="Login Now" class="btn btn-primary">
                   </div>
-                  <p class="text-center">Don't have an account? <a href="#">Register now</a></p>
+                  <p class="text-center">Don't have an account? <a href="./register_form_for_volnteer.php">Register now</a></p>
                </form>
             </div>
          </div>
