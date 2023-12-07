@@ -98,7 +98,7 @@ handleVolunteeringDeleting($volunteering, $user, $conn);
                 </div>
                 <div class="col-lg-6">
                     <div class="about-avatar">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+                        <img src="./../img/avatar.png" title="" alt="">
                     </div>
                 </div>
             </div>

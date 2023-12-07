@@ -4,7 +4,6 @@ include "./../inc/config_db.php";
 include "./../parts/functons.php";
 
 session_start();
- 
 
 if (!(isset($_SESSION['employee']))) {
     header('location: ./login_e.php');
@@ -72,7 +71,7 @@ $compeleted = $employee -> comopleted_volunteering($conn);
                 </div>
                 <div class="col-lg-6">
                     <div class="about-avatar">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+                        <img src="./../img/avatar.png" title="" alt="">
                     </div>
                 </div>
             </div>
