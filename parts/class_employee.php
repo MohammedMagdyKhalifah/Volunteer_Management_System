@@ -224,5 +224,26 @@ class Employee
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+    public function count_active_volunteer_opportunities($conn)
+    {
+        $sql = " SELECT COUNT(volunteering.id) AS active_volunteering
+        FROM volunteering 
+        WHERE volunteering.employee_id = $this->id
+        AND   volunteering.availability > 0;";
+        $result = mysqli_query($conn, $sql);
+        $count = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $count[0]["active_volunteering"];
+    }
+    public function comopleted_volunteering($conn)
+    { 
+      $sql= " SELECT COUNT(volunteering.id) AS compeleted
+        FROM volunteering 
+        WHERE volunteering.employee_id = $this->id
+        AND   volunteering.availability = 0
+        AND   volunteering.is_rated >0";
+        $result = mysqli_query($conn, $sql);
+        $count = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $count[0]["compeleted"];
+    }
 }
 ?>
