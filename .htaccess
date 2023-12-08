@@ -1,0 +1,3 @@
+Options -Indexes 
+ErrorDocument 404 "<h1>Nothing Here Don't Play With me!</h1><a href='./Landing_page.php'>Go Home</a>"
+ErrorDocument 403 "<h1>Nice Catch Don't Play With me!</h1>"
